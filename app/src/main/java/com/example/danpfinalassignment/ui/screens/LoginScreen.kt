@@ -48,7 +48,7 @@ import com.example.danpfinalassignment.ui.theme.PrimaryColor
 import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
-import com.example.danpfinalassignment.ui.theme.SizeShort
+import com.example.danpfinalassignment.ui.theme.SizeSmall
 import com.example.danpfinalassignment.util.composables.AppHeader
 import com.example.danpfinalassignment.util.composables.BackgroundCircle
 import com.example.danpfinalassignment.util.navigation.Destination
@@ -98,7 +98,7 @@ fun LoginScreen(navController: NavHostController) {
                 value = email
             )
 
-            Spacer(modifier = Modifier.height(SizeShort))
+            Spacer(modifier = Modifier.height(SizeSmall))
 
             /* TODO: ADD HIDE PASSWORD FUNCTIONALITY */
             OutlinedTextField(
@@ -131,7 +131,7 @@ fun LoginScreen(navController: NavHostController) {
                     Text(text = LoginButton, color = SecondaryColor, fontSize = 16.sp)
                 }
 
-                Spacer(modifier = Modifier.height(SizeShort))
+                Spacer(modifier = Modifier.height(SizeSmall))
 
                 Button(
                     colors = ButtonDefaults.buttonColors(
@@ -148,7 +148,7 @@ fun LoginScreen(navController: NavHostController) {
                         modifier = Modifier.size(16.dp)
                     )
 
-                    Spacer(modifier = Modifier.width(SizeShort))
+                    Spacer(modifier = Modifier.width(SizeSmall))
 
                     Text(text = LoginButtonGoogle, color = GrayColor, fontSize = 16.sp)
                 }

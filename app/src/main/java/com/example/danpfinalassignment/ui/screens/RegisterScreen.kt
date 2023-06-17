@@ -47,7 +47,7 @@ import com.example.danpfinalassignment.ui.theme.RegisterTitle
 import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
-import com.example.danpfinalassignment.ui.theme.SizeShort
+import com.example.danpfinalassignment.ui.theme.SizeSmall
 import com.example.danpfinalassignment.util.composables.AppHeader
 import com.example.danpfinalassignment.util.composables.BackgroundCircle
 import com.example.danpfinalassignment.util.navigation.Destination
@@ -100,7 +100,7 @@ fun RegisterScreen(navController: NavHostController) {
                 value = fullName
             )
 
-            Spacer(modifier = Modifier.height(SizeShort))
+            Spacer(modifier = Modifier.height(SizeSmall))
 
             OutlinedTextField(
                 keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
@@ -113,7 +113,7 @@ fun RegisterScreen(navController: NavHostController) {
                 value = email
             )
 
-            Spacer(modifier = Modifier.height(SizeShort))
+            Spacer(modifier = Modifier.height(SizeSmall))
 
             /* TODO: ADD HIDE PASSWORD FUNCTIONALITY */
             OutlinedTextField(
@@ -160,7 +160,7 @@ fun RegisterScreen(navController: NavHostController) {
                 Text(text = RegisterButton, color = SecondaryColor, fontSize = 16.sp)
             }
 
-            Spacer(modifier = Modifier.height(SizeShort))
+            Spacer(modifier = Modifier.height(SizeSmall))
 
             Row {
                 Text(text = "Are you registered?", color = GrayColor, fontSize = 14.sp)
