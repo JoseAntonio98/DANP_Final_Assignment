@@ -42,7 +42,10 @@ fun AppTitle(navController: NavHostController) {
             tint = SecondaryColor,
             modifier = Modifier
                 .size(SizeLarge)
-                .clickable { navController.navigate(Destination.Login.route) }
+                .clickable {
+                    /* TODO: Open Sidebar Menu */
+                    navController.navigate(Destination.Login.route)
+                }
         )
 
         Row(

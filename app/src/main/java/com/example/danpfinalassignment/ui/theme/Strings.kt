@@ -25,3 +25,7 @@ const val VerificationMessage = "Enter the verification code sent to your email"
 const val VerificationButton = "Confirm"
 
 /* (HOME) */
+const val HomeTitle = "Smoke Detection"
+const val HomeSmokeDetected = "Smoke detected"
+const val HomeActivateSmokeDisperserButton = "Activate Smoke Disperser"
+const val HomeViewHistoryButton = "View History"

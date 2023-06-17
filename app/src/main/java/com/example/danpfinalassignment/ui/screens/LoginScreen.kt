@@ -49,6 +49,7 @@ import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeSmall
+import com.example.danpfinalassignment.ui.theme.TextSizeP
 import com.example.danpfinalassignment.util.composables.AppHeader
 import com.example.danpfinalassignment.util.composables.BackgroundCircle
 import com.example.danpfinalassignment.util.navigation.Destination
@@ -128,7 +129,7 @@ fun LoginScreen(navController: NavHostController) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
 
-                    Text(text = LoginButton, color = SecondaryColor, fontSize = 16.sp)
+                    Text(text = LoginButton, color = SecondaryColor, fontSize = TextSizeP)
                 }
 
                 Spacer(modifier = Modifier.height(SizeSmall))
@@ -145,12 +146,12 @@ fun LoginScreen(navController: NavHostController) {
                     Image(
                         painter = painterResource(id = R.drawable.google),
                         contentDescription = "Google Logo",
-                        modifier = Modifier.size(16.dp)
+                        modifier = Modifier.size(SizeMedium)
                     )
 
                     Spacer(modifier = Modifier.width(SizeSmall))
 
-                    Text(text = LoginButtonGoogle, color = GrayColor, fontSize = 16.sp)
+                    Text(text = LoginButtonGoogle, color = GrayColor, fontSize = TextSizeP)
                 }
             }
 

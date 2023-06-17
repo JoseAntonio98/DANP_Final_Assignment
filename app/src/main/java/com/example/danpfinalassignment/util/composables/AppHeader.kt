@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.AppName
+import com.example.danpfinalassignment.ui.theme.ImageSizeLarge
 import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 
@@ -34,9 +35,9 @@ fun AppHeader() {
     }
 
     Image(
-    painter = painterResource(id = R.drawable.app_logo),
-    contentDescription = "App Logo",
-    modifier = Modifier.size(220.dp)
+        painter = painterResource(id = R.drawable.app_logo),
+        contentDescription = "App Logo",
+        modifier = Modifier.size(ImageSizeLarge)
     )
 
     Spacer(modifier = Modifier.height(SizeMedium))
