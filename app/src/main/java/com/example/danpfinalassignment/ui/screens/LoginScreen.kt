@@ -24,21 +24,19 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.navigation.NavHostController
-import com.example.danpfinalassignment.util.composables.BackgroundCircle
-import com.example.danpfinalassignment.util.navigation.Destination
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.AppName
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
@@ -53,6 +51,8 @@ import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeShort
+import com.example.danpfinalassignment.util.composables.BackgroundCircle
+import com.example.danpfinalassignment.util.navigation.Destination
 
 @Composable
 fun LoginScreen(navController: NavHostController) {
@@ -140,7 +140,10 @@ fun LoginScreen(navController: NavHostController) {
                         containerColor = PrimaryColor
                     ),
                     elevation = ButtonDefaults.buttonElevation(5.dp),
-                    onClick = { /* TODO */ },
+                    onClick = {
+                        navController.navigate(Destination.Home.route)
+                        /* TODO */
+                    },
                     modifier = Modifier.fillMaxWidth()
                 ) {
 
@@ -170,7 +173,7 @@ fun LoginScreen(navController: NavHostController) {
                 }
             }
 
-            Spacer(modifier = Modifier.height(SizeShort))
+            Spacer(modifier = Modifier.height(SizeMedium))
 
             Row {
                 Text(text = "Are you no registered?", color = GrayColor, fontSize = 14.sp)
