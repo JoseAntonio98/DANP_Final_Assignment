@@ -1,4 +1,4 @@
-package com.example.danpfinalassignment
+package com.example.danpfinalassignment.ui.screens
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
