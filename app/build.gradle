@@ -67,4 +67,11 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    // https://mvnrepository.com/artifact/com.amplifyframework/core
+    implementation 'com.amplifyframework:core:2.8.5'
+
+    // https://mvnrepository.com/artifact/com.amplifyframework/aws-auth-cognito
+    implementation 'com.amplifyframework:aws-auth-cognito:2.8.5'
+
 }
