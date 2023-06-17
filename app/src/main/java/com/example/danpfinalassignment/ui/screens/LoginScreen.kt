@@ -5,7 +5,6 @@ package com.example.danpfinalassignment.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -38,7 +37,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.R
-import com.example.danpfinalassignment.ui.theme.AppName
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
 import com.example.danpfinalassignment.ui.theme.GrayColor
 import com.example.danpfinalassignment.ui.theme.LoginButton
@@ -51,6 +49,7 @@ import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeShort
+import com.example.danpfinalassignment.util.composables.AppHeader
 import com.example.danpfinalassignment.util.composables.BackgroundCircle
 import com.example.danpfinalassignment.util.navigation.Destination
 
@@ -67,25 +66,7 @@ fun LoginScreen(navController: NavHostController) {
             .padding(horizontal = 20.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center
-        ) {
-            Text(
-                text = AppName,
-                color = SecondaryColor,
-                fontSize = 24.sp,
-                fontWeight = FontWeight.ExtraBold,
-            )
-        }
-
-        Image(
-            painter = painterResource(id = R.drawable.app_logo),
-            contentDescription = "App Logo",
-            modifier = Modifier.size(220.dp)
-        )
-
-        Spacer(modifier = Modifier.height(SizeMedium))
+        AppHeader()
 
         Column(
             modifier = Modifier
