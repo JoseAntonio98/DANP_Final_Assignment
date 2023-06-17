@@ -37,7 +37,7 @@ import com.example.danpfinalassignment.ui.theme.PrimaryColor
 import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeExtraLarge
 import com.example.danpfinalassignment.ui.theme.SizeLarge
-import com.example.danpfinalassignment.ui.theme.SizeShort
+import com.example.danpfinalassignment.ui.theme.SizeSmall
 import com.example.danpfinalassignment.ui.theme.VerificationButton
 import com.example.danpfinalassignment.ui.theme.VerificationMessage
 import com.example.danpfinalassignment.ui.theme.VerificationTitle
@@ -91,43 +91,43 @@ fun RegisterVerificationScreen(navController: NavHostController) {
                     maxLines = 1,
                     modifier = Modifier.weight(1f),
                     onValueChange = { code1 = it },
-                    shape = RoundedCornerShape(SizeShort),
+                    shape = RoundedCornerShape(SizeSmall),
                     singleLine = true,
                     value = code1
                 )
 
-                Spacer(modifier = Modifier.width(SizeShort))
+                Spacer(modifier = Modifier.width(SizeSmall))
 
                 TextField(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     maxLines = 1,
                     modifier = Modifier.weight(1f),
                     onValueChange = { code2 = it },
-                    shape = RoundedCornerShape(SizeShort),
+                    shape = RoundedCornerShape(SizeSmall),
                     singleLine = true,
                     value = code2
                 )
 
-                Spacer(modifier = Modifier.width(SizeShort))
+                Spacer(modifier = Modifier.width(SizeSmall))
 
                 TextField(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     maxLines = 1,
                     modifier = Modifier.weight(1f),
                     onValueChange = { code3 = it },
-                    shape = RoundedCornerShape(SizeShort),
+                    shape = RoundedCornerShape(SizeSmall),
                     singleLine = true,
                     value = code3
                 )
 
-                Spacer(modifier = Modifier.width(SizeShort))
+                Spacer(modifier = Modifier.width(SizeSmall))
 
                 TextField(
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     maxLines = 1,
                     modifier = Modifier.weight(1f),
                     onValueChange = { code4 = it },
-                    shape = RoundedCornerShape(SizeShort),
+                    shape = RoundedCornerShape(SizeSmall),
                     singleLine = true,
                     value = code4
                 )
