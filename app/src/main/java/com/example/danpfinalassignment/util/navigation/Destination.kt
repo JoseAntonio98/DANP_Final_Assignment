@@ -1,4 +1,4 @@
-package com.example.danpfinalassignment.util
+package com.example.danpfinalassignment.util.navigation
 
 sealed class Destination(val title: String, val route: String) {
     object EmergencyContacts : Destination("Emergency Contacts", "emergency_contacts")

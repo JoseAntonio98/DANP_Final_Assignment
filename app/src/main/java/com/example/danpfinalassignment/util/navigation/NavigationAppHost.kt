@@ -1,4 +1,4 @@
-package com.example.danpfinalassignment.util
+package com.example.danpfinalassignment.util.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
