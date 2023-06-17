@@ -173,7 +173,7 @@ fun RegisterScreen(navController: NavHostController) {
                 ),
                 elevation = ButtonDefaults.buttonElevation(5.dp),
                 onClick = {
-                    navController.navigate(Destination.Login.route)
+                    navController.navigate(Destination.RegisterVerification.route)
                     /* TODO */
                 },
                 modifier = Modifier.fillMaxWidth()
