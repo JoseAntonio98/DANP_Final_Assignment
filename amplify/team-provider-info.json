@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-smokealert-dev-152038-authRole",
+      "UnauthRoleArn": "arn:aws:iam::172847611352:role/amplify-smokealert-dev-152038-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::172847611352:role/amplify-smokealert-dev-152038-authRole",
+      "Region": "sa-east-1",
+      "DeploymentBucketName": "amplify-smokealert-dev-152038-deployment",
+      "UnauthRoleName": "amplify-smokealert-dev-152038-unauthRole",
+      "StackName": "amplify-smokealert-dev-152038",
+      "StackId": "arn:aws:cloudformation:sa-east-1:172847611352:stack/amplify-smokealert-dev-152038/6fdfaf30-0d4c-11ee-84d8-0299ddd76236",
+      "AmplifyAppId": "d2xpmaq8zl38eu"
+    },
+    "categories": {
+      "auth": {
+        "smokealert0c397e19": {}
+      }
+    }
+  }
+}
