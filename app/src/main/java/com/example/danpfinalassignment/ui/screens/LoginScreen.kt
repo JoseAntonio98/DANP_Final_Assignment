@@ -38,18 +38,20 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
-import com.example.danpfinalassignment.ui.theme.GrayColor
+import com.example.danpfinalassignment.ui.theme.DarkGrayColor
 import com.example.danpfinalassignment.ui.theme.LoginButton
 import com.example.danpfinalassignment.ui.theme.LoginButtonGoogle
+import com.example.danpfinalassignment.ui.theme.LoginNoRegistered
 import com.example.danpfinalassignment.ui.theme.LoginTextFieldEmail
 import com.example.danpfinalassignment.ui.theme.LoginTextFieldPassword
 import com.example.danpfinalassignment.ui.theme.LoginTitle
+import com.example.danpfinalassignment.ui.theme.LoginToRegister
 import com.example.danpfinalassignment.ui.theme.PrimaryColor
 import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeSmall
-import com.example.danpfinalassignment.ui.theme.TextSizeP
+import com.example.danpfinalassignment.ui.theme.TextSizeP1
 import com.example.danpfinalassignment.util.composables.AppHeader
 import com.example.danpfinalassignment.util.composables.BackgroundCircle
 import com.example.danpfinalassignment.util.navigation.Destination
@@ -129,14 +131,14 @@ fun LoginScreen(navController: NavHostController) {
                     modifier = Modifier.fillMaxWidth()
                 ) {
 
-                    Text(text = LoginButton, color = SecondaryColor, fontSize = TextSizeP)
+                    Text(text = LoginButton, color = SecondaryColor, fontSize = TextSizeP1)
                 }
 
                 Spacer(modifier = Modifier.height(SizeSmall))
 
                 Button(
                     colors = ButtonDefaults.buttonColors(
-                        contentColor = GrayColor,
+                        contentColor = DarkGrayColor,
                         containerColor = SecondaryColor
                     ),
                     elevation = ButtonDefaults.buttonElevation(5.dp),
@@ -151,18 +153,18 @@ fun LoginScreen(navController: NavHostController) {
 
                     Spacer(modifier = Modifier.width(SizeSmall))
 
-                    Text(text = LoginButtonGoogle, color = GrayColor, fontSize = TextSizeP)
+                    Text(text = LoginButtonGoogle, color = DarkGrayColor, fontSize = TextSizeP1)
                 }
             }
 
             Spacer(modifier = Modifier.height(SizeMedium))
 
             Row {
-                Text(text = "Are you no registered?", color = GrayColor, fontSize = 14.sp)
+                Text(text = LoginNoRegistered, color = DarkGrayColor, fontSize = 14.sp)
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
                     modifier = Modifier.clickable { navController.navigate(Destination.Register.route) },
-                    text = "Register here",
+                    text = LoginToRegister,
                     color = PrimaryColor,
                     fontWeight = FontWeight.Normal,
                     fontSize = 14.sp

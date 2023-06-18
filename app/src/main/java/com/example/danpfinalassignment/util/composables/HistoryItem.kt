@@ -13,26 +13,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
-import com.example.danpfinalassignment.ui.theme.GrayColor
+import com.example.danpfinalassignment.ui.theme.DarkGrayColor
+import com.example.danpfinalassignment.ui.theme.LightGrayColor
 import com.example.danpfinalassignment.ui.theme.PrimaryColor
 import com.example.danpfinalassignment.ui.theme.SizeMedium
+import com.example.danpfinalassignment.ui.theme.SizeSmall
+import com.example.danpfinalassignment.ui.theme.TextSizeH4
+import com.example.danpfinalassignment.ui.theme.TextSizeP2
 
 @Composable
 fun HistoryItem() {
     /* TODO: Improve History Items styles */
     Row(
         modifier = Modifier
-            .clip(RoundedCornerShape(SizeMedium))
-            .background(color = Color(245, 245, 245))
-            .padding(12.dp, 8.dp)
+            .clip(RoundedCornerShape(SizeSmall))
+            .background(color = LightGrayColor)
+            .padding(SizeMedium, SizeSmall)
             .fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
 
-    ) {
+        ) {
         Column(
             modifier = Modifier
                 .weight(1f)
@@ -40,15 +41,15 @@ fun HistoryItem() {
             verticalArrangement = Arrangement.Top
         ) {
             Text(
-                text = "Date",
+                text = "Sunday, June 11 2023",
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
-                color = GrayColor
+                fontSize = TextSizeP2,
+                color = DarkGrayColor
             )
             Text(
-                text = "Time",
-                fontSize = 14.sp,
-                color = GrayColor
+                text = "07:28 AM",
+                fontSize = TextSizeP2,
+                color = DarkGrayColor
             )
         }
 
@@ -58,9 +59,9 @@ fun HistoryItem() {
             verticalArrangement = Arrangement.Top
         ) {
             Text(
-                text = "15.50",
+                text = "0.00",
                 fontWeight = FontWeight.Bold,
-                fontSize = 16.sp,
+                fontSize = TextSizeH4,
                 color = PrimaryColor
             )
         }

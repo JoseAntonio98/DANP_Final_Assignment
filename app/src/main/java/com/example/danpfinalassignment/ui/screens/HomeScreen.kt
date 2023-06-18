@@ -35,7 +35,7 @@ import com.example.danpfinalassignment.ui.theme.SizeExtraLarge
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.TextSizeH2
-import com.example.danpfinalassignment.ui.theme.TextSizeP
+import com.example.danpfinalassignment.ui.theme.TextSizeP1
 import com.example.danpfinalassignment.ui.theme.textSizeLarge
 import com.example.danpfinalassignment.util.composables.AppTitle
 import com.example.danpfinalassignment.util.navigation.Destination
@@ -100,7 +100,7 @@ fun HomeScreen(navController: NavHostController) {
                 Text(
                     text = HomeActivateSmokeDisperserButton,
                     color = SecondaryColor,
-                    fontSize = TextSizeP
+                    fontSize = TextSizeP1
                 )
             }
 
@@ -137,7 +137,7 @@ fun HomeScreen(navController: NavHostController) {
                 Text(
                     text = HomeViewHistoryButton,
                     color = SecondaryColor,
-                    fontSize = TextSizeP
+                    fontSize = TextSizeP1
                 )
             }
         }

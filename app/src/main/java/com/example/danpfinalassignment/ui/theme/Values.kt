@@ -15,7 +15,8 @@ val TextSizeH1 = 24.sp
 val TextSizeH2 = 22.sp
 val TextSizeH3 = 20.sp
 val TextSizeH4 = 18.sp
-val TextSizeP = 16.sp
+val TextSizeP1 = 16.sp
+val TextSizeP2 = 14.sp
 
 /* (IMAGES SIZES) */
 val ImageSizeLarge = 200.dp

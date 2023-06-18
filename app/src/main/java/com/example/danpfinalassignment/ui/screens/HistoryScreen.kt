@@ -22,7 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.R
-import com.example.danpfinalassignment.ui.theme.GrayColor
+import com.example.danpfinalassignment.ui.theme.DarkGrayColor
 import com.example.danpfinalassignment.ui.theme.HistoryEmptyMessage
 import com.example.danpfinalassignment.ui.theme.HistoryTitle
 import com.example.danpfinalassignment.ui.theme.ImageSizeLarge
@@ -90,7 +90,7 @@ fun HistoryScreen(navController: NavHostController) {
 
                     Spacer(modifier = Modifier.height(SizeMedium))
 
-                    Text(text = HistoryEmptyMessage, color = GrayColor)
+                    Text(text = HistoryEmptyMessage, color = DarkGrayColor)
                 }
             } else {
                 Column(
