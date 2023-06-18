@@ -2,6 +2,7 @@ package com.example.danpfinalassignment.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,6 +29,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -61,11 +63,15 @@ import com.example.danpfinalassignment.ui.theme.TextSizeH2
 import com.example.danpfinalassignment.ui.theme.TextSizeP1
 import com.example.danpfinalassignment.ui.theme.TextSizeP2
 import com.example.danpfinalassignment.util.composables.AppTitle
+import com.example.danpfinalassignment.util.composables.SettingsSmokeValueForm
+import com.example.danpfinalassignment.util.navigation.Destination
 
 @Composable
 fun SettingsScreen(navController: NavHostController) {
     var isAlertChecked by remember { mutableStateOf(false) }
     var isSoundChecked by remember { mutableStateOf(false) }
+
+    var showDialog by rememberSaveable { mutableStateOf(false) }
 
     /* TODO: Convert to LazyColumn to Scroll in small devices */
     Column(
@@ -153,7 +159,8 @@ fun SettingsScreen(navController: NavHostController) {
                         .clip(RoundedCornerShape(SizeSmall))
                         .background(color = LightGrayColor)
                         .padding(SizeMedium, SizeMedium)
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable { /* TODO */ },
                     verticalAlignment = Alignment.CenterVertically,
 
                     ) {
@@ -290,14 +297,15 @@ fun SettingsScreen(navController: NavHostController) {
                 Spacer(modifier = Modifier.height(SizeSmall))
 
                 /* TODO: CONVERT TO COMPOSABLE */
-                /* TODO: Make Clickable*/
+                /* TODO: Make Clickable */
                 /* UPDATE SMOKE VALUE LIMIT */
                 Row(
                     modifier = Modifier
                         .clip(RoundedCornerShape(SizeSmall))
                         .background(color = LightGrayColor)
                         .padding(SizeMedium, SizeMedium)
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable { showDialog = true },
                     verticalAlignment = Alignment.CenterVertically,
 
                     ) {
@@ -326,7 +334,11 @@ fun SettingsScreen(navController: NavHostController) {
                         .clip(RoundedCornerShape(SizeSmall))
                         .background(color = LightGrayColor)
                         .padding(SizeMedium, SizeMedium)
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .clickable {
+                            navController.navigate(Destination.Login.route)
+                            /* TODO: Implement Logout functionality */
+                        },
                     verticalAlignment = Alignment.CenterVertically,
 
                     ) {
@@ -349,4 +361,11 @@ fun SettingsScreen(navController: NavHostController) {
 
         }
     }
+
+    /* TODO: Change functions onDismiss and onConfirm */
+    SettingsSmokeValueForm(
+        showDialog = showDialog,
+        onDismiss = { showDialog = false },
+        onConfirm = { showDialog = false }
+    )
 }

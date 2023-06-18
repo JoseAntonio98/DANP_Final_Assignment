@@ -162,8 +162,10 @@ fun EmergencyContactsScreen(navController: NavHostController) {
         }
     }
 
+    /* TODO: Change functions onDismiss and onConfirm */
     EmergencyContactsAddForm(
         showDialog = showDialog,
         onDismiss = { showDialog = false },
-        onConfirm = { showDialog = false })
+        onConfirm = { showDialog = false }
+    )
 }

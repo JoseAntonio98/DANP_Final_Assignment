@@ -56,3 +56,8 @@ const val SettingsAlerts = "Alerts"
 const val SettingsSound = "Sound"
 const val SettingsUpdateSmokeValue = "Update smoke critical value"
 const val SettingsLogout = "Logout"
+
+const val SettingsAddTitle = "Smoke value"
+const val SettingsAddSmokeInput = "Value: "
+const val SettingsAddCancel = "Cancel"
+const val SettingsAddUpdate = "Update"
