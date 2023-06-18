@@ -46,3 +46,13 @@ const val ContactsAddTitle = "Add Emergency Contact"
 const val ContactsAddFullName = "Full Name: "
 const val ContactsAddPhone = "Phone Number: "
 const val ContactsAddSave = "Save"
+
+/* (SETTINGS) */
+const val SettingsTitle = "App Settings"
+const val SettingsPersonalData = "Personal Data"
+const val SettingsChangePassword = "Change password"
+const val SettingsSubtitle = "Settings"
+const val SettingsAlerts = "Alerts"
+const val SettingsSound = "Sound"
+const val SettingsUpdateSmokeValue = "Update smoke critical value"
+const val SettingsLogout = "Logout"

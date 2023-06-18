@@ -1,6 +1,7 @@
 package com.example.danpfinalassignment.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -27,9 +28,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.R
+import com.example.danpfinalassignment.ui.theme.ContactsDescription
 import com.example.danpfinalassignment.ui.theme.ContactsEmptyMessage
 import com.example.danpfinalassignment.ui.theme.ContactsTitle
 import com.example.danpfinalassignment.ui.theme.DarkGrayColor
@@ -41,7 +44,7 @@ import com.example.danpfinalassignment.ui.theme.SizeExtraLarge
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeMedium20
-import com.example.danpfinalassignment.ui.theme.TextSizeH2
+import com.example.danpfinalassignment.ui.theme.TextSizeH1
 import com.example.danpfinalassignment.util.composables.AppTitle
 import com.example.danpfinalassignment.util.composables.ContactItem
 import com.example.danpfinalassignment.util.composables.EmergencyContactsAddForm
@@ -53,7 +56,7 @@ data class Contact(val fullName: String, val phone: String, val notify: Boolean)
 fun EmergencyContactsScreen(navController: NavHostController) {
     /* TODO: Temporal list to test UI. REPLACE with Cloud Data */
     // val contactsList = emptyList<Contact>() /* EmptyList, only for test - DELETE */
-    val contactsList = (1..10).map {
+    val contactsList = (1..5).map {
         Contact(
             fullName = "FullName $it",
             phone = "Phone $it",
@@ -66,6 +69,7 @@ fun EmergencyContactsScreen(navController: NavHostController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(SecondaryColor)
     ) {
         AppTitle(navController)
 
@@ -81,7 +85,7 @@ fun EmergencyContactsScreen(navController: NavHostController) {
             ) {
                 Text(
                     text = ContactsTitle,
-                    fontSize = TextSizeH2,
+                    fontSize = TextSizeH1,
                     color = PrimaryColor,
                     fontWeight = FontWeight.Bold
                 )
@@ -111,6 +115,19 @@ fun EmergencyContactsScreen(navController: NavHostController) {
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Text(
+                            text = ContactsDescription,
+                            color = DarkGrayColor,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+
+                    Spacer(modifier = Modifier.height(SizeLarge))
+
                     LazyColumn(
                         contentPadding = PaddingValues(all = 4.dp),
                         verticalArrangement = Arrangement.spacedBy(8.dp)
