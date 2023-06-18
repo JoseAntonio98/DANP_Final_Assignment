@@ -38,11 +38,12 @@ import com.example.danpfinalassignment.ui.theme.TextSizeH2
 import com.example.danpfinalassignment.ui.theme.TextSizeP
 import com.example.danpfinalassignment.ui.theme.textSizeLarge
 import com.example.danpfinalassignment.util.composables.AppTitle
+import com.example.danpfinalassignment.util.navigation.Destination
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
     /* TODO: Value to test image. CHANGE for data from Cloud */
-    val isHistoryEmpty = false
+    val isHistoryEmpty = true
 
     Column(
         modifier = Modifier
@@ -128,6 +129,7 @@ fun HomeScreen(navController: NavHostController) {
                 ),
                 elevation = ButtonDefaults.buttonElevation(5.dp),
                 onClick = {
+                    navController.navigate(Destination.History.route)
                     /* TODO */
                 },
                 modifier = Modifier.fillMaxWidth()

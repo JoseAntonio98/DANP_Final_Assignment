@@ -29,3 +29,7 @@ const val HomeTitle = "Smoke Detection"
 const val HomeSmokeDetected = "Smoke detected"
 const val HomeActivateSmokeDisperserButton = "Activate Smoke Disperser"
 const val HomeViewHistoryButton = "View History"
+
+/* (HISTORY) */
+const val HistoryTitle = "History"
+const val HistoryEmptyMessage = "There is no registered activity yet"
