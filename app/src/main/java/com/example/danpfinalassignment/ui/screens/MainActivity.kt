@@ -24,10 +24,10 @@ class MainActivity : ComponentActivity() {
                     // color = MaterialTheme.colorScheme.background
                     color = TertiaryColor
                 ) {
-                    // Amplify.Auth.fetchAuthSession(
-                    //     { Log.i("AmplifyQuickstart", "Auth session = $it") },
-                    //     { error -> Log.e("AmplifyQuickstart", "Failed to fetch auth session", error) }
-                    // )
+//                     Amplify.Auth.fetchAuthSession(
+//                         { Log.i("AmplifyQuickstart", "Auth session = $it") },
+//                         { error -> Log.e("AmplifyQuickstart", "Failed to fetch auth session", error) }
+//                     )
 
                     val navController = rememberNavController()
                     NavigationAppHost(navController = navController)

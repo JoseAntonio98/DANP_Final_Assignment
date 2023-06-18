@@ -36,14 +36,14 @@ import com.example.danpfinalassignment.util.composables.AppTitle
 import com.example.danpfinalassignment.util.composables.HistoryItem
 
 /* TODO: Temporal data class to test UI. REPLACE with Cloud Data */
-data class ListItem(val date: String, val time: String, val value: Int)
+data class HistoryLog(val date: String, val time: String, val value: Int)
 
 @Composable
 fun HistoryScreen(navController: NavHostController) {
     /* TODO: Temporal list to test UI. REPLACE with Cloud Data */
-    // val historyItems = emptyList<ListItem>() /* EmptyList, only for test - DELETE */
-    val historyItems = (1..20).map {
-        ListItem(
+    // val historyList = emptyList<HistoryLog>() /* EmptyList, only for test - DELETE */
+    val historyList = (1..10).map {
+        HistoryLog(
             date = "Date $it",
             time = "Time $it",
             value = it
@@ -77,7 +77,7 @@ fun HistoryScreen(navController: NavHostController) {
 
             Spacer(modifier = Modifier.height(SizeLarge))
 
-            if (historyItems.isEmpty()) {
+            if (historyList.isEmpty()) {
                 Column(
                     modifier = Modifier.fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally
@@ -110,7 +110,7 @@ fun HistoryScreen(navController: NavHostController) {
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ) {
                         /* TODO: Temporal iteration. REPLACE with Cloud data */
-                        items(historyItems.size) {
+                        items(historyList.size) {
                             HistoryItem()
                         }
                     }
