@@ -23,3 +23,4 @@ val TextSizeP2 = 14.sp
 /* (IMAGES SIZES) */
 val ImageSizeLarge = 200.dp
 val ImageWidthLarge = 260.dp
+val ImageSizeCard = 50.dp
