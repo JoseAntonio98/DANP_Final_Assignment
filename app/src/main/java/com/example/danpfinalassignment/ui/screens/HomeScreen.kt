@@ -129,7 +129,7 @@ fun HomeScreen(navController: NavHostController) {
                 ),
                 elevation = ButtonDefaults.buttonElevation(5.dp),
                 onClick = {
-                    navController.navigate(Destination.History.route)
+                    navController.navigate(Destination.EmergencyContacts.route)
                     /* TODO */
                 },
                 modifier = Modifier.fillMaxWidth()

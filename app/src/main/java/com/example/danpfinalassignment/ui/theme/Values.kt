@@ -6,8 +6,10 @@ import androidx.compose.ui.unit.sp
 /* (DP SIZES) */
 val SizeSmall = 8.dp
 val SizeMedium = 16.dp
+val SizeMedium20 = 20.dp
 val SizeLarge = 32.dp
 val SizeExtraLarge = 48.dp
+val SizeCircularShape = 50.dp
 
 /* (SP SIZES) */
 val textSizeLarge = 48.sp

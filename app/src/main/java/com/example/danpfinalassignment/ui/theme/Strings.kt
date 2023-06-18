@@ -35,3 +35,7 @@ const val HomeViewHistoryButton = "View History"
 /* (HISTORY) */
 const val HistoryTitle = "History"
 const val HistoryEmptyMessage = "There is no registered activity yet"
+
+/* (EMERGENCY CONTACTS) */
+const val ContactsTitle = "Emergency Contacts"
+const val ContactsEmptyMessage = "You have no registered contacts yet "
