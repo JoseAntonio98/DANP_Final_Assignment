@@ -41,6 +41,7 @@ data class ListItem(val date: String, val time: String, val value: Int)
 @Composable
 fun HistoryScreen(navController: NavHostController) {
     /* TODO: Temporal list to test UI. REPLACE with Cloud Data */
+    // val historyItems = emptyList<ListItem>() /* EmptyList, only for test - DELETE */
     val historyItems = (1..20).map {
         ListItem(
             date = "Date $it",
