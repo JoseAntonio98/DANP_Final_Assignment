@@ -18,6 +18,10 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -37,10 +41,12 @@ import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeMedium20
 import com.example.danpfinalassignment.ui.theme.TextSizeH2
 import com.example.danpfinalassignment.util.composables.AppTitle
+import com.example.danpfinalassignment.util.composables.EmergencyContactsAddForm
 
 @Composable
 fun EmergencyContactsScreen(navController: NavHostController) {
     val isContactsEmpty = true
+    var showDialog by rememberSaveable { mutableStateOf(false) }
 
     Column(
         modifier = Modifier
@@ -102,11 +108,16 @@ fun EmergencyContactsScreen(navController: NavHostController) {
             contentColor = SecondaryColor,
             onClick = {
                 /* TODO */
-                // showDialog = true
+                showDialog = true
             },
             shape = RoundedCornerShape(SizeCircularShape)
         ) {
             Icon(Icons.Default.Add, contentDescription = "Add")
         }
     }
+
+    EmergencyContactsAddForm(
+        showDialog = showDialog,
+        onDismiss = { showDialog = false },
+        onConfirm = { showDialog = false })
 }
