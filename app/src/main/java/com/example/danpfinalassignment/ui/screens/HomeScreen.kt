@@ -1,9 +1,11 @@
 package com.example.danpfinalassignment.ui.screens
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,10 +13,20 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DrawerValue
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -34,111 +46,142 @@ import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeExtraLarge
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
+import com.example.danpfinalassignment.ui.theme.SizeTopBar
 import com.example.danpfinalassignment.ui.theme.TextSizeH2
 import com.example.danpfinalassignment.ui.theme.TextSizeP1
 import com.example.danpfinalassignment.ui.theme.textSizeLarge
-import com.example.danpfinalassignment.util.composables.AppTitle
+import com.example.danpfinalassignment.util.composables.DrawerContent
+import com.example.danpfinalassignment.util.composables.NavDrawer
+import com.example.danpfinalassignment.util.composables.TopBar
 import com.example.danpfinalassignment.util.navigation.Destination
+import kotlinx.coroutines.launch
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
     /* TODO: Value to test image. CHANGE for data from Cloud */
     val isHistoryEmpty = true
 
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(SecondaryColor)
+    val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
+    val scope = rememberCoroutineScope()
+
+    NavDrawer(
+        drawerState = drawerState,
+        drawerContent = {
+            DrawerContent(navController = navController, scope = scope, drawerState = drawerState)
+        }
     ) {
-        AppTitle(navController)
-
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(SizeExtraLarge),
-            horizontalAlignment = Alignment.CenterHorizontally
+        Scaffold(
+            topBar = {
+                TopBar(
+                    title = Destination.Home.title,
+                    navigationIcon = {
+                        IconButton(onClick = { scope.launch { drawerState.open() } }) {
+                            Icon(Icons.Default.Menu, contentDescription = "Menu Bars")
+                        }
+                    }
+                )
+            }
         ) {
-            Row(
-                horizontalArrangement = Arrangement.Center,
-                modifier = Modifier.fillMaxWidth()
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = SizeMedium, vertical = SizeTopBar + 4.dp)
+                    .background(SecondaryColor),
+                contentPadding = PaddingValues(vertical = 8.dp)
             ) {
-                Text(
-                    text = HomeTitle,
-                    fontSize = TextSizeH2,
-                    color = PrimaryColor,
-                    fontWeight = FontWeight.Bold
-                )
-            }
 
-            Spacer(modifier = Modifier.height(SizeLarge))
+                items(1) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally
+                    ) {
+                        Row(
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = HomeTitle,
+                                fontSize = TextSizeH2,
+                                color = PrimaryColor,
+                                fontWeight = FontWeight.Bold
+                            )
+                        }
 
-            /* TODO: Make CIRCULAR shape*/
-            Text(
-                /* TODO: Replace fixed value to CLOUD value */
-                text = "0.00",
-                color = DarkBlackColor,
-                fontSize = textSizeLarge
-            )
+                        Spacer(modifier = Modifier.height(SizeLarge))
 
-            Spacer(modifier = Modifier.height(SizeMedium))
+                        /* TODO: Make CIRCULAR shape*/
+                        Text(
+                            /* TODO: Replace fixed value to CLOUD value */
+                            text = "0.00",
+                            color = DarkBlackColor,
+                            fontSize = textSizeLarge
+                        )
 
-            Text(text = HomeSmokeDetected)
+                        Spacer(modifier = Modifier.height(SizeMedium))
 
-            Spacer(modifier = Modifier.height(SizeMedium))
+                        Text(text = HomeSmokeDetected)
 
-            Button(
-                colors = ButtonDefaults.buttonColors(
-                    contentColor = SecondaryColor,
-                    containerColor = PrimaryColor
-                ),
-                elevation = ButtonDefaults.buttonElevation(5.dp),
-                onClick = {
-                    /* TODO */
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = HomeActivateSmokeDisperserButton,
-                    color = SecondaryColor,
-                    fontSize = TextSizeP1
-                )
-            }
+                        Spacer(modifier = Modifier.height(SizeMedium))
 
-            Spacer(modifier = Modifier.height(SizeExtraLarge))
+                        Button(
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = SecondaryColor,
+                                containerColor = PrimaryColor
+                            ),
+                            elevation = ButtonDefaults.buttonElevation(5.dp),
+                            onClick = {
+                                /* TODO */
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = HomeActivateSmokeDisperserButton,
+                                color = SecondaryColor,
+                                fontSize = TextSizeP1
+                            )
+                        }
 
-            if (isHistoryEmpty) {
-                Image(
-                    painter = painterResource(id = R.drawable.home_empty),
-                    contentDescription = "Empty Home",
-                    modifier = Modifier.width(ImageSizeLarge)
-                )
-            } else {
-                Image(
-                    painter = painterResource(id = R.drawable.chart_soon),
-                    contentDescription = "Chart",
-                    modifier = Modifier.width(ImageWidthLarge)
-                )
-            }
+                        Spacer(modifier = Modifier.height(SizeExtraLarge))
 
-            Spacer(modifier = Modifier.height(SizeLarge))
+                        if (isHistoryEmpty) {
+                            Image(
+                                painter = painterResource(id = R.drawable.home_empty),
+                                contentDescription = "Empty Home",
+                                modifier = Modifier.width(ImageSizeLarge)
+                            )
+                        } else {
+                            Image(
+                                painter = painterResource(id = R.drawable.chart_soon),
+                                contentDescription = "Chart",
+                                modifier = Modifier.width(ImageWidthLarge)
+                            )
+                        }
 
-            Button(
-                colors = ButtonDefaults.buttonColors(
-                    contentColor = SecondaryColor,
-                    containerColor = PrimaryColor
-                ),
-                elevation = ButtonDefaults.buttonElevation(5.dp),
-                onClick = {
-                    navController.navigate(Destination.Settings.route)
-                    /* TODO */
-                },
-                modifier = Modifier.fillMaxWidth()
-            ) {
-                Text(
-                    text = HomeViewHistoryButton,
-                    color = SecondaryColor,
-                    fontSize = TextSizeP1
-                )
+                        Spacer(modifier = Modifier.height(SizeLarge))
+
+                        Button(
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = SecondaryColor,
+                                containerColor = PrimaryColor
+                            ),
+                            elevation = ButtonDefaults.buttonElevation(5.dp),
+                            onClick = {
+                                navController.navigate(Destination.Settings.route)
+                                /* TODO */
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = HomeViewHistoryButton,
+                                color = SecondaryColor,
+                                fontSize = TextSizeP1
+                            )
+                        }
+                    }
+                }
             }
         }
     }

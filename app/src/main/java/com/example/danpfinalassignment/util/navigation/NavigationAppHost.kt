@@ -1,8 +1,8 @@
 package com.example.danpfinalassignment.util.navigation
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.compose.NavHost
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.danpfinalassignment.ui.screens.EmergencyContactsScreen
 import com.example.danpfinalassignment.ui.screens.HistoryScreen

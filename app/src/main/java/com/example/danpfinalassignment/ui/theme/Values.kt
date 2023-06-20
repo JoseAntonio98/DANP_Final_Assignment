@@ -10,6 +10,7 @@ val SizeMedium20 = 20.dp
 val SizeLarge = 32.dp
 val SizeExtraLarge = 48.dp
 val SizeCircularShape = 50.dp
+val SizeTopBar = 64.dp
 
 /* (SP SIZES) */
 val textSizeLarge = 48.sp
