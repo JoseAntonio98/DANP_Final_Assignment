@@ -9,8 +9,9 @@ val TertiaryColor = Color(232, 228, 236)
 
 val DarkBlackColor = Color(7, 7, 7)
 val LightBlackColor = Color(40, 40, 40)
-val GrayColor = Color(109, 105, 98)
+val DarkGrayColor = Color(109, 105, 98)
 val ErrorColor = Color(252,100,132)
+val LightGrayColor = Color(245, 245, 245)
 
 /* (DEFAULT COLORS) */
 val Purple80 = Color(0xFFD0BCFF)

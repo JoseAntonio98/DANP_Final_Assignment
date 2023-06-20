@@ -37,13 +37,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
-import com.example.danpfinalassignment.ui.theme.GrayColor
+import com.example.danpfinalassignment.ui.theme.DarkGrayColor
 import com.example.danpfinalassignment.ui.theme.PrimaryColor
+import com.example.danpfinalassignment.ui.theme.RegisterAcceptTerms
 import com.example.danpfinalassignment.ui.theme.RegisterButton
+import com.example.danpfinalassignment.ui.theme.RegisterRegistered
 import com.example.danpfinalassignment.ui.theme.RegisterTextFieldEmail
 import com.example.danpfinalassignment.ui.theme.RegisterTextFieldFullName
 import com.example.danpfinalassignment.ui.theme.RegisterTextFieldPassword
 import com.example.danpfinalassignment.ui.theme.RegisterTitle
+import com.example.danpfinalassignment.ui.theme.RegisterToLogin
 import com.example.danpfinalassignment.ui.theme.SecondaryColor
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
@@ -139,7 +142,7 @@ fun RegisterScreen(navController: NavHostController) {
                         checkedColor = PrimaryColor
                     ),
                     onCheckedChange = { isChecked = it })
-                Text(text = "Accept Terms and Conditions", color = GrayColor, fontSize = 14.sp)
+                Text(text = RegisterAcceptTerms, color = DarkGrayColor, fontSize = 14.sp)
             }
 
             Spacer(modifier = Modifier.height(SizeLarge))
@@ -163,11 +166,11 @@ fun RegisterScreen(navController: NavHostController) {
             Spacer(modifier = Modifier.height(SizeSmall))
 
             Row {
-                Text(text = "Are you registered?", color = GrayColor, fontSize = 14.sp)
+                Text(text = RegisterRegistered, color = DarkGrayColor, fontSize = 14.sp)
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
                     modifier = Modifier.clickable { navController.navigate(Destination.Login.route) },
-                    text = "Login",
+                    text = RegisterToLogin,
                     color = PrimaryColor,
                     fontWeight = FontWeight.Normal,
                     fontSize = 14.sp
