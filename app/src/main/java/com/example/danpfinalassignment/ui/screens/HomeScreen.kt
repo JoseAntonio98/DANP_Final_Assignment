@@ -3,10 +3,8 @@ package com.example.danpfinalassignment.ui.screens
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -30,14 +28,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
 import com.example.danpfinalassignment.ui.theme.HomeActivateSmokeDisperserButton
 import com.example.danpfinalassignment.ui.theme.HomeSmokeDetected
-import com.example.danpfinalassignment.ui.theme.HomeTitle
 import com.example.danpfinalassignment.ui.theme.HomeViewHistoryButton
 import com.example.danpfinalassignment.ui.theme.ImageSizeLarge
 import com.example.danpfinalassignment.ui.theme.ImageWidthLarge
@@ -47,7 +43,6 @@ import com.example.danpfinalassignment.ui.theme.SizeExtraLarge
 import com.example.danpfinalassignment.ui.theme.SizeLarge
 import com.example.danpfinalassignment.ui.theme.SizeMedium
 import com.example.danpfinalassignment.ui.theme.SizeTopBar
-import com.example.danpfinalassignment.ui.theme.TextSizeH2
 import com.example.danpfinalassignment.ui.theme.TextSizeP1
 import com.example.danpfinalassignment.ui.theme.textSizeLarge
 import com.example.danpfinalassignment.util.composables.DrawerContent
@@ -98,17 +93,6 @@ fun HomeScreen(navController: NavHostController) {
                             .fillMaxSize(),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Row(
-                            horizontalArrangement = Arrangement.Center,
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text(
-                                text = HomeTitle,
-                                fontSize = TextSizeH2,
-                                color = PrimaryColor,
-                                fontWeight = FontWeight.Bold
-                            )
-                        }
 
                         Spacer(modifier = Modifier.height(SizeLarge))
 
@@ -169,7 +153,7 @@ fun HomeScreen(navController: NavHostController) {
                             ),
                             elevation = ButtonDefaults.buttonElevation(5.dp),
                             onClick = {
-                                navController.navigate(Destination.Settings.route)
+                                navController.navigate(Destination.History.route)
                                 /* TODO */
                             },
                             modifier = Modifier.fillMaxWidth()
