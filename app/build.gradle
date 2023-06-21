@@ -47,7 +47,6 @@ android {
 }
 
 dependencies {
-
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
     implementation 'androidx.activity:activity-compose:1.5.1'
@@ -73,5 +72,6 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.amplifyframework/aws-auth-cognito
     implementation 'com.amplifyframework:aws-auth-cognito:2.8.5'
+    implementation 'com.amplifyframework.ui:authenticator:1.0.0'
 
 }
