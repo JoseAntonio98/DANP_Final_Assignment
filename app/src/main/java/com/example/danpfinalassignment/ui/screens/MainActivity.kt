@@ -1,18 +1,19 @@
 package com.example.danpfinalassignment.ui.screens
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.amplifyframework.core.Amplify
+import com.amplifyframework.ui.authenticator.enums.AuthenticatorStep
 import com.example.danpfinalassignment.ui.theme.DANPFinalAssignmentTheme
 import com.example.danpfinalassignment.ui.theme.TertiaryColor
 import com.example.danpfinalassignment.util.navigation.NavigationAppHost
+import com.amplifyframework.ui.authenticator.rememberAuthenticatorState
+import com.amplifyframework.ui.authenticator.ui.Authenticator
+import com.example.danpfinalassignment.util.composables.Header
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,14 +25,25 @@ class MainActivity : ComponentActivity() {
                     // color = MaterialTheme.colorScheme.background
                     color = TertiaryColor
                 ) {
-                    /* TODO: Uncommented when your Amplify configuration is set */
-                     // Amplify.Auth.fetchAuthSession(
-                     //   { Log.i("AmplifyQuickstart", "Auth session = $it") },
-                     //   { error -> Log.e("AmplifyQuickstart", "Failed to fetch auth session", error) }
-                     // )
 
-                    val navController = rememberNavController()
-                    NavigationAppHost(navController = navController)
+                    val authenticatorState = rememberAuthenticatorState(
+                        initialStep = AuthenticatorStep.SignIn,
+                        signUpForm = {
+                            username()
+                            email()
+                            password()
+                            confirmPassword()
+                        }
+                    )
+                    Authenticator (
+                        state = authenticatorState,
+                        headerContent = { Header() }
+                        //signInContent = { state -> LoginScreen(state = state)},
+                        //signUpContent = { state -> RegisterScreen(state = state)},
+                    ) {
+                        val navController = rememberNavController()
+                        NavigationAppHost(navController = navController)
+                    }
                 }
             }
         }
