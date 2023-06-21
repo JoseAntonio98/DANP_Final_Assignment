@@ -15,9 +15,9 @@ sealed class Destination(val title: String, val route: String, val icon: ImageVe
     object History : Destination("History", "history", Icons.Default.List)
     object Home : Destination("Home", "home", Icons.Default.Home)
     object Login : Destination("Login", "login", Icons.Default.Face)
-    object Register : Destination("Register", "register", Icons.Default.Face)
-    object RegisterVerification :
-        Destination("Register Verification", "register_verification", Icons.Default.Face)
+    //object Register : Destination("Register", "register", Icons.Default.Face)
+    //object RegisterVerification :
+    //    Destination("Register Verification", "register_verification", Icons.Default.Face)
 
     object Settings : Destination("Settings", "settings", Icons.Default.Settings)
 }

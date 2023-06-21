@@ -37,12 +37,14 @@ class MainActivity : ComponentActivity() {
                     )
                     Authenticator (
                         state = authenticatorState,
-                        headerContent = { Header() }
+                        headerContent = { Header() },
                         //signInContent = { state -> LoginScreen(state = state)},
                         //signUpContent = { state -> RegisterScreen(state = state)},
-                    ) {
+                    ) {state ->
+                        //val username = state.user.username
+                        //state.signOut() -> coroutine -> scope.launch
                         val navController = rememberNavController()
-                        NavigationAppHost(navController = navController)
+                        NavigationAppHost(navController = navController, state = state)
                     }
                 }
             }
