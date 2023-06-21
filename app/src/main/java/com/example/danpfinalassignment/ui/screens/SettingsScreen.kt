@@ -15,7 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Edit
@@ -46,6 +48,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
+import com.amplifyframework.ui.authenticator.SignedInState
 import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.DarkGrayColor
 import com.example.danpfinalassignment.ui.theme.ImageSizeCard
@@ -78,15 +81,15 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun SettingsScreen(navController: NavHostController) {
+fun SettingsScreen(navController: NavHostController, state: SignedInState) {
     var isAlertChecked by remember { mutableStateOf(false) }
     var isSoundChecked by remember { mutableStateOf(false) }
-
     var showDialog by rememberSaveable { mutableStateOf(false) }
 
     /* TODO: Convert to LazyColumn to Scroll in small devices */
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+    val scrollState = rememberScrollState()
 
     NavDrawer(
         drawerState = drawerState,
@@ -204,7 +207,10 @@ fun SettingsScreen(navController: NavHostController) {
                     Spacer(modifier = Modifier.height(SizeLarge))
 
                     /* SETTINGS */
-                    Column {
+                    Column (
+                        modifier = Modifier
+                            .verticalScroll(scrollState)
+                            ) {
                         Text(
                             text = SettingsSubtitle,
                             fontSize = TextSizeH2,
@@ -356,8 +362,9 @@ fun SettingsScreen(navController: NavHostController) {
                                 .padding(SizeMedium, SizeMedium)
                                 .fillMaxWidth()
                                 .clickable {
-                                    navController.navigate(Destination.Login.route)
+                                    //navController.navigate(Destination.Login.route)
                                     /* TODO: Implement Logout functionality */
+                                    scope.launch { state.signOut() }
                                 },
                             verticalAlignment = Alignment.CenterVertically,
 
