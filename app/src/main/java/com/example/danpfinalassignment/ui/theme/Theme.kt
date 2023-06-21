@@ -22,9 +22,14 @@ private val DarkColorScheme = darkColorScheme(
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
+    primary = PrimaryColor, // enlaces y botones
+    onPrimary = SecondaryColor, // texto de botones
+    secondary = DarkGrayColor,
+    onSecondary = DarkGrayColor,
+    tertiary = DarkBlackColor, // Títulos
+    onError = ErrorColor,
+    //surface = DarkGrayColor, // indeterminado
+    outline = OutlineColor, // lineas de textfield
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

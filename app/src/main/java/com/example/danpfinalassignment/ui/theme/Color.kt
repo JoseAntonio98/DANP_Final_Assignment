@@ -12,12 +12,13 @@ val LightBlackColor = Color(40, 40, 40)
 val DarkGrayColor = Color(109, 105, 98)
 val ErrorColor = Color(252,100,132)
 val LightGrayColor = Color(245, 245, 245)
+val OutlineColor = Color(150, 147, 155)
 
 /* (DEFAULT COLORS) */
 val Purple80 = Color(0xFFD0BCFF)
 val PurpleGrey80 = Color(0xFFCCC2DC)
 val Pink80 = Color(0xFFEFB8C8)
 
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
+//val Purple40 = Color(0xFF6650a4)
+//val PurpleGrey40 = Color(0xFF625b71)
+//val Pink40 = Color(0xFF7D5260)
