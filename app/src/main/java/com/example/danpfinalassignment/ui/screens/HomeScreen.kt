@@ -115,7 +115,7 @@ fun HomeScreen(navController: NavHostController) {
                         Spacer(modifier = Modifier.height(SizeLarge))
 
 //                        Metodo de suscripcion al broker
-                            mqttBroker.subscribe("esp32/pub") { valor -> valorSensor.value = valor }
+                            mqttBroker.subscribe("esp32/sub") { valor -> valorSensor.value = valor }
 
                         /* TODO: Make CIRCULAR shape*/
                         Text(
