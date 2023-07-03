@@ -39,6 +39,7 @@ import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
 import com.example.danpfinalassignment.ui.theme.HomeActivateSmokeDisperserButton
 import com.example.danpfinalassignment.ui.theme.HomeSmokeDetected
+import com.example.danpfinalassignment.ui.theme.HomeViewHistoryButton
 import com.example.danpfinalassignment.ui.theme.ImageSizeLarge
 import com.example.danpfinalassignment.ui.theme.ImageWidthLarge
 import com.example.danpfinalassignment.ui.theme.PrimaryColor
@@ -63,7 +64,7 @@ fun HomeScreen(navController: NavHostController) {
     /* TODO: Value to test image. CHANGE for data from Cloud */
     val isHistoryEmpty = true
     val context = LocalContext.current
-    var valorSensor = remember { mutableStateOf("") }
+    var valorSensor = remember { mutableStateOf("300") }
     var valor = remember { mutableStateOf("") }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
@@ -164,8 +165,6 @@ fun HomeScreen(navController: NavHostController) {
                                 mqttBroker.publish("esp32/pub", "{\n" +
                                         "  \"message\": \"Apagar\"\n" +
                                         "}")
-                                navController.navigate(Destination.History.route)
-                                /* TODO */
                             },
                             modifier = Modifier.fillMaxWidth()
                         ) {
@@ -189,6 +188,27 @@ fun HomeScreen(navController: NavHostController) {
                                 painter = painterResource(id = R.drawable.chart_soon),
                                 contentDescription = "Chart",
                                 modifier = Modifier.width(ImageWidthLarge)
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(SizeLarge))
+
+                        Button(
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = SecondaryColor,
+                                containerColor = PrimaryColor
+                            ),
+                            elevation = ButtonDefaults.buttonElevation(5.dp),
+                            onClick = {
+                                navController.navigate(Destination.History.route)
+                                /* TODO */
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = HomeViewHistoryButton,
+                                color = SecondaryColor,
+                                fontSize = TextSizeP1
                             )
                         }
 
