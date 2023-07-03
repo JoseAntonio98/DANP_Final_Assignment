@@ -65,7 +65,6 @@ fun HomeScreen(navController: NavHostController) {
     val isHistoryEmpty = true
     val context = LocalContext.current
     var valorSensor = remember { mutableStateOf("300") }
-    var valor = remember { mutableStateOf("") }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
@@ -116,7 +115,7 @@ fun HomeScreen(navController: NavHostController) {
                         Spacer(modifier = Modifier.height(SizeLarge))
 
 //                        Metodo de suscripcion al broker
-//                        mqttBroker.subscribe("esp32/pub") { valor -> valorSensor = valor }
+                            mqttBroker.subscribe("esp32/pub") { valor -> valorSensor.value = valor }
 
                         /* TODO: Make CIRCULAR shape*/
                         Text(
