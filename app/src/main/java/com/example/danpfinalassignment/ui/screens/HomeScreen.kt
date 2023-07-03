@@ -1,6 +1,8 @@
 package com.example.danpfinalassignment.ui.screens
 
 import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -24,9 +26,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.rememberDrawerState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
@@ -34,7 +39,6 @@ import com.example.danpfinalassignment.R
 import com.example.danpfinalassignment.ui.theme.DarkBlackColor
 import com.example.danpfinalassignment.ui.theme.HomeActivateSmokeDisperserButton
 import com.example.danpfinalassignment.ui.theme.HomeSmokeDetected
-import com.example.danpfinalassignment.ui.theme.HomeViewHistoryButton
 import com.example.danpfinalassignment.ui.theme.ImageSizeLarge
 import com.example.danpfinalassignment.ui.theme.ImageWidthLarge
 import com.example.danpfinalassignment.ui.theme.PrimaryColor
@@ -51,15 +55,29 @@ import com.example.danpfinalassignment.util.composables.TopBar
 import com.example.danpfinalassignment.util.navigation.Destination
 import kotlinx.coroutines.launch
 
+@RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(navController: NavHostController) {
     /* TODO: Value to test image. CHANGE for data from Cloud */
     val isHistoryEmpty = true
+    val context = LocalContext.current
+    var valorSensor = remember { mutableStateOf("") }
+    var valor = remember { mutableStateOf("") }
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val scope = rememberCoroutineScope()
+
+    lateinit var mqttBroker: MqttBroker;
+
+    mqttBroker = MqttBroker(
+        "ssl://ahee5r1ym27qz-ats.iot.sa-east-1.amazonaws.com:8883",
+        "LocalClient",
+        context
+    )
+    mqttBroker.connect()
+
 
     NavDrawer(
         drawerState = drawerState,
@@ -96,10 +114,13 @@ fun HomeScreen(navController: NavHostController) {
 
                         Spacer(modifier = Modifier.height(SizeLarge))
 
+//                        Metodo de suscripcion al broker
+//                        mqttBroker.subscribe("esp32/pub") { valor -> valorSensor = valor }
+
                         /* TODO: Make CIRCULAR shape*/
                         Text(
                             /* TODO: Replace fixed value to CLOUD value */
-                            text = "0.00",
+                            text = valorSensor.value,
                             color = DarkBlackColor,
                             fontSize = textSizeLarge
                         )
@@ -117,12 +138,39 @@ fun HomeScreen(navController: NavHostController) {
                             ),
                             elevation = ButtonDefaults.buttonElevation(5.dp),
                             onClick = {
-                                /* TODO */
+                                mqttBroker.publish("esp32/pub", "{\n" +
+                                        "  \"message\": \"prender\"\n" +
+                                        "}")
                             },
                             modifier = Modifier.fillMaxWidth()
                         ) {
                             Text(
                                 text = HomeActivateSmokeDisperserButton,
+                                color = SecondaryColor,
+                                fontSize = TextSizeP1
+                            )
+                        }
+
+                        Spacer(modifier = Modifier.height(SizeLarge))
+
+                        Button(
+                            colors = ButtonDefaults.buttonColors(
+                                contentColor = SecondaryColor,
+                                containerColor = PrimaryColor
+                            ),
+                            elevation = ButtonDefaults.buttonElevation(5.dp),
+                            onClick = {
+
+                                mqttBroker.publish("esp32/pub", "{\n" +
+                                        "  \"message\": \"Apagar\"\n" +
+                                        "}")
+                                navController.navigate(Destination.History.route)
+                                /* TODO */
+                            },
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
+                            Text(
+                                text = "Apagar Dispersor",
                                 color = SecondaryColor,
                                 fontSize = TextSizeP1
                             )
@@ -144,26 +192,6 @@ fun HomeScreen(navController: NavHostController) {
                             )
                         }
 
-                        Spacer(modifier = Modifier.height(SizeLarge))
-
-                        Button(
-                            colors = ButtonDefaults.buttonColors(
-                                contentColor = SecondaryColor,
-                                containerColor = PrimaryColor
-                            ),
-                            elevation = ButtonDefaults.buttonElevation(5.dp),
-                            onClick = {
-                                navController.navigate(Destination.History.route)
-                                /* TODO */
-                            },
-                            modifier = Modifier.fillMaxWidth()
-                        ) {
-                            Text(
-                                text = HomeViewHistoryButton,
-                                color = SecondaryColor,
-                                fontSize = TextSizeP1
-                            )
-                        }
                     }
                 }
             }

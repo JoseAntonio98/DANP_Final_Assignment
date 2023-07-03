@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".aws.MyAmplifyApp"
         android:allowBackup="true"
@@ -24,5 +26,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="aws.mobileClientEnabled"
+            android:value="true" />
+        <meta-data
+            android:name="aws.mobileClientRegion"
+            android:value="sa-east-1" /> <!-- Cambia esto según tu región de AWS -->
+        <meta-data
+            android:name="aws.mobileClientAppId"
+            android:value="tu-app-id" /> <!-- Cambia esto por tu App ID de AWS Mobile Hub -->
+
+        <service android:name="org.eclipse.paho.android.service.MqttService"
+            android:exported="false" />
+
     </application>
 </manifest>
