@@ -55,6 +55,7 @@ import com.example.danpfinalassignment.util.composables.NavDrawer
 import com.example.danpfinalassignment.util.composables.TopBar
 import com.example.danpfinalassignment.util.navigation.Destination
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 
 @RequiresApi(Build.VERSION_CODES.O)
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -114,8 +115,12 @@ fun HomeScreen(navController: NavHostController) {
 
                         Spacer(modifier = Modifier.height(SizeLarge))
 
-//                        Metodo de suscripcion al broker
-                            mqttBroker.subscribe("esp32/sub") { valor -> valorSensor.value = valor }
+//                      Metodo de suscripcion al broker
+                        mqttBroker.subscribe("esp32/pub") { valor ->
+                            val jsonObject = JSONObject(valor)
+                            val sensorValue = jsonObject.getInt("sensorValue")
+                            valorSensor.value = sensorValue.toString()
+                        }
 
                         /* TODO: Make CIRCULAR shape*/
                         Text(
@@ -138,7 +143,7 @@ fun HomeScreen(navController: NavHostController) {
                             ),
                             elevation = ButtonDefaults.buttonElevation(5.dp),
                             onClick = {
-                                mqttBroker.publish("esp32/pub", "{\n" +
+                                mqttBroker.publish("esp32/sub", "{\n" +
                                         "  \"message\": \"prender\"\n" +
                                         "}")
                             },
@@ -161,7 +166,7 @@ fun HomeScreen(navController: NavHostController) {
                             elevation = ButtonDefaults.buttonElevation(5.dp),
                             onClick = {
 
-                                mqttBroker.publish("esp32/pub", "{\n" +
+                                mqttBroker.publish("esp32/sub", "{\n" +
                                         "  \"message\": \"Apagar\"\n" +
                                         "}")
                             },
