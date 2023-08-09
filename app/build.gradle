@@ -69,6 +69,8 @@ dependencies {
 
     // https://mvnrepository.com/artifact/com.amplifyframework/core
     implementation 'com.amplifyframework:core:2.8.5'
+    implementation 'com.amplifyframework:aws-datastore:2.8.4'
+    implementation 'com.amplifyframework:aws-api:2.8.4'
 
     // https://mvnrepository.com/artifact/com.amplifyframework/aws-auth-cognito
     implementation 'com.amplifyframework:aws-auth-cognito:2.8.5'

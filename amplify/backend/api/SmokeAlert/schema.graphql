@@ -1,0 +1,7 @@
+type SmokeSensor @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  timestamp: String!
+  value: Int!
+  unit: String!
+  notes: String!
+}
