@@ -116,10 +116,16 @@ fun HomeScreen(navController: NavHostController) {
                         Spacer(modifier = Modifier.height(SizeLarge))
 
 //                      Metodo de suscripcion al broker
-                        mqttBroker.subscribe("esp32/pub") { valor ->
+                        mqttBroker.subscribe("esp32/movil") { valor ->
                             val jsonObject = JSONObject(valor)
-                            val sensorValue = jsonObject.getInt("sensorValue")
-                            valorSensor.value = sensorValue.toString()
+                            val sensorsArray = jsonObject.getJSONArray("Sensors")
+                            if (sensorsArray.length() > 0) {
+                                val dataObj = sensorsArray.getJSONObject(0)
+                                val dataString = dataObj.getString("Data")
+                                val dataJson = JSONObject(dataString)
+                                val sensorValue = dataJson.getInt("value")
+                                valorSensor.value = sensorValue.toString()
+                            }
                         }
 
                         /* TODO: Make CIRCULAR shape*/
@@ -143,8 +149,9 @@ fun HomeScreen(navController: NavHostController) {
                             ),
                             elevation = ButtonDefaults.buttonElevation(5.dp),
                             onClick = {
-                                mqttBroker.publish("esp32/sub", "{\n" +
-                                        "  \"message\": \"prender\"\n" +
+                                mqttBroker.publish("movil/esp32", "{\n" +
+                                        "  \"action\": \"prender\"\n" +
+                                        "  \"value\": \"${valorSensor}\"\n" +
                                         "}")
                             },
                             modifier = Modifier.fillMaxWidth()
