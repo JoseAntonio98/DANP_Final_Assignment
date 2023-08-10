@@ -173,8 +173,9 @@ fun HomeScreen(navController: NavHostController) {
                             elevation = ButtonDefaults.buttonElevation(5.dp),
                             onClick = {
 
-                                mqttBroker.publish("esp32/sub", "{\n" +
-                                        "  \"message\": \"Apagar\"\n" +
+                                mqttBroker.publish("movil/esp32", "{\n" +
+                                        "  \"action\": \"apagar\"\n" +
+                                        "  \"value\": \"0\"\n" +
                                         "}")
                             },
                             modifier = Modifier.fillMaxWidth()
